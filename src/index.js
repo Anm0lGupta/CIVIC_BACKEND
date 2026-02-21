@@ -47,6 +47,12 @@ app.get("/health", (req, res) => {
     environment: process.env.NODE_ENV || "development"
   })
 })
+app.get("/", (req, res) => {
+  res.json({
+    message: "Civic Mirror Backend is running 🚀",
+    health: "/health"
+  })
+})
 
 // Reddit scraping + complaint registration endpoints
 app.use("/api/reddit", redditRoutes)
